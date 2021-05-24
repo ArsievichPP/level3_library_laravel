@@ -17,18 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [BookController::class, 'index']);
-//
-//Route::get('/books', [BookController::class, 'index']);
+
+Route::get('/books', [BookController::class, 'index']);
 
 Route::post('/search', [BookController::class, 'search']);
-//
-//Route::get('/books/{book_id}', [BookController::class, 'show'])
-//    ->whereNumber('book_id');
-//
-//Route::patch('books/{book_id}', [BookController::class, 'update'])
-//    ->whereNumber('book_id');
 
-Route::resource('books',BookController::class);
+Route::get('/book/{book_id}', [BookController::class, 'show'])
+    ->whereNumber('book_id');
+
+Route::patch('book/{book_id}', [BookController::class, 'update'])
+    ->whereNumber('book_id');
 
 Route::get('/admin', [AdminController::class, 'index']);
 
